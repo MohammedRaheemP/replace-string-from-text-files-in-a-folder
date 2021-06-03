@@ -1,0 +1,13 @@
+import os
+import re
+lists=os.listdir()
+print(lists)
+
+for list in lists:
+    if list.endswith('.txt'):
+        with open(list, 'r+') as f:
+            text = f.read()
+            text = re.sub('1 ', '2 ', text)
+            f.seek(0)
+            f.write(text)
+            f.truncate()
